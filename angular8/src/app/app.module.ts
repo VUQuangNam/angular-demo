@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // component
 import { UploadingFileComponent } from './uploading-file/uploading-file.component';
@@ -15,7 +16,8 @@ import { UploadingFileComponent } from './uploading-file/uploading-file.componen
     imports: [
         BrowserModule,
         AppRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        BrowserAnimationsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
