@@ -10,10 +10,8 @@ import { MouseEvent } from '@agm/core';
 export class MapComponent implements OnInit {
 
     markers: IMap[] = [];
-
     lat = 40.730610;
     lng = -73.935242;
-
     zoom = 8;
 
     mapClicked($event: MouseEvent) {
@@ -36,5 +34,4 @@ export class MapComponent implements OnInit {
 
     ngOnInit() {
     }
-
 }

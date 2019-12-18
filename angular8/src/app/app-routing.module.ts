@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-// import component
 import { UploadingFileComponent } from './uploading-file/uploading-file.component';
 import { MapComponent } from './map/map.component';
-
 
 const routes: Routes = [
     { path: 'uploading', component: UploadingFileComponent },

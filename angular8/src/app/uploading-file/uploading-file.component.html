@@ -4,7 +4,6 @@
         <div class="form-group">
             <input multiple type="file" name="image" (change)="fileProgress($event)" />
         </div>
-
         <div class="image-preview" style="display: flex;" *ngIf="previewUrl">
             <div *ngFor="let item of previewUrl">
                 <img style="margin-right:20px;" [src]="item" height="100px" width="100px" />
