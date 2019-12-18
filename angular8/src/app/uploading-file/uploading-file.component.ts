@@ -3,8 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-uploading-file',
-    templateUrl: './uploading-file.component.html',
-    styleUrls: ['./uploading-file.component.scss']
+    templateUrl: './uploading-file.component.html'
 })
 export class UploadingFileComponent implements OnInit {
     fileData: File = null;
