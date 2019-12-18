@@ -4,20 +4,28 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgmCoreModule } from '@agm/core';
 
 // component
 import { UploadingFileComponent } from './uploading-file/uploading-file.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        UploadingFileComponent
+        UploadingFileComponent,
+        MapComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        AgmCoreModule.forRoot({
+            // please get your own API key here:
+            // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
+            apiKey: ''
+        })
     ],
     providers: [],
     bootstrap: [AppComponent]
