@@ -1,21 +1,41 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
+import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-material',
     templateUrl: './material.component.html',
     styleUrls: ['./material.component.scss']
 })
-export class MaterialComponent implements OnInit {
 
-    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+export class MaterialComponent implements OnInit {
+    color = 'accent';
+    checked = false;
+    disabled = false;
+
+    myControl = new FormControl();
+    options: string[] = ['One', 'Two', 'Three'];
+
+    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'setting'];
     dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+    @ViewChild(MatSort, { static: true }) sort: MatSort;
 
     ngOnInit() {
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
     }
+    applyFilter(filterValue: string) {
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+        if (this.dataSource.paginator) {
+            this.dataSource.paginator.firstPage();
+        }
+    }
+    onClick(i) {
+        console.log(i);
+    }
+
 }
 
 export interface PeriodicElement {
@@ -24,6 +44,7 @@ export interface PeriodicElement {
     weight: number;
     symbol: string;
 }
+
 
 const ELEMENT_DATA: PeriodicElement[] = [
     { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
@@ -47,3 +68,4 @@ const ELEMENT_DATA: PeriodicElement[] = [
     { position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K' },
     { position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca' },
 ];
+

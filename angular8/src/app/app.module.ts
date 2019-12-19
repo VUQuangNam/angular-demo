@@ -5,7 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
-import { MatTableModule, MatPaginatorModule, MatAutocompleteModule } from '@angular/material';
+import {
+    MatTableModule,
+    MatPaginatorModule,
+    MatAutocompleteModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSlideToggleModule,
+    MatRadioModule,
+    MatCheckboxModule
+} from '@angular/material';
 
 // component
 import { UploadingFileComponent } from './uploading-file/uploading-file.component';
@@ -29,6 +39,12 @@ import { MaterialComponent } from './material/material.component';
         MatTableModule,
         MatAutocompleteModule,
         MatPaginatorModule,
+        MatSortModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatCheckboxModule,
+        MatRadioModule,
+        MatSlideToggleModule,
         AgmCoreModule.forRoot({
             // please get your own API key here:
             // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
