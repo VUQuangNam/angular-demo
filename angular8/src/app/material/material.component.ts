@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
+
 
 @Component({
     selector: 'app-material',
@@ -8,13 +9,31 @@ import { FormControl } from '@angular/forms';
     styleUrls: ['./material.component.scss']
 })
 
+
 export class MaterialComponent implements OnInit {
     color = 'accent';
     checked = false;
     disabled = false;
 
+    foods = [
+        { value: 'steak-0', viewValue: 'Steak' },
+        { value: 'pizza-1', viewValue: 'Pizza' },
+        { value: 'tacos-2', viewValue: 'Tacos' }
+    ];
+    animalControl = new FormControl('', [Validators.required]);
+    selectFormControl = new FormControl('', Validators.required);
+    animals: Animal[] = [
+        { name: 'Dog', sound: 'Woof!' },
+        { name: 'Cat', sound: 'Meow!' },
+        { name: 'Cow', sound: 'Moo!' },
+        { name: 'Fox', sound: 'Wa-pa-pa-pa-pa-pa-pow!' },
+    ];
+
     myControl = new FormControl();
     options: string[] = ['One', 'Two', 'Three'];
+
+    toppings = new FormControl();
+    toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
     displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'setting'];
     dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
@@ -45,6 +64,10 @@ export interface PeriodicElement {
     symbol: string;
 }
 
+export interface Animal {
+    name: string;
+    sound: string;
+}
 
 const ELEMENT_DATA: PeriodicElement[] = [
     { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
@@ -68,4 +91,3 @@ const ELEMENT_DATA: PeriodicElement[] = [
     { position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K' },
     { position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca' },
 ];
-

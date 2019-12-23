@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +14,12 @@ import {
     MatInputModule,
     MatSlideToggleModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatMenuModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
 } from '@angular/material';
 
 // component
@@ -45,6 +50,11 @@ import { MaterialComponent } from './material/material.component';
         MatCheckboxModule,
         MatRadioModule,
         MatSlideToggleModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatMenuModule,
+        MatIconModule,
+        MatSelectModule,
         AgmCoreModule.forRoot({
             // please get your own API key here:
             // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
@@ -52,6 +62,9 @@ import { MaterialComponent } from './material/material.component';
         })
     ],
     providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+    ],
 })
 export class AppModule { }
