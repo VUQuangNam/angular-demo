@@ -19,14 +19,8 @@ export class MapComponent implements OnInit {
     latCentral = 21.00276051083239;
     lngCentral = 105.84241640624998;
 
-    markers: IMap[] = [
-        //     {
-        //     lat: this.latCentral,
-        //     lng: this.lngCentral,
-        //     draggable: true
-        // }
-    ];
-    zoom = 10;
+    markers: IMap[] = [];
+    zoom = 8;
 
     mapClicked($event: MouseEvent) {
         this.markers = [{
@@ -54,13 +48,14 @@ export class MapComponent implements OnInit {
                 this.districtData = districts.filter(x => x.parent_code === value);
                 this.latCentral = this.districtData[0].locations[0][0][0].latitude;
                 this.lngCentral = this.districtData[0].locations[0][0][0].longitude;
+                this.zoom = 10;
                 break;
             case 2:
                 this.wardsData = wards.filter(x => x.parent_code === value);
                 this.streetData = streets.find(x => x.code === value).streets;
                 this.latCentral = this.wardsData[0].locations.latitude;
                 this.lngCentral = this.wardsData[0].locations.longitude;
-                this.zoom = 14;
+                this.zoom = 12;
                 break;
             case 3:
                 this.wardsData.forEach(element => {

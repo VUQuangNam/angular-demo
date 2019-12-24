@@ -3,7 +3,10 @@
         <agm-map [(latitude)]="latCentral" [(longitude)]="lngCentral" [zoom]="zoom" [disableDefaultUI]="false"
             [zoomControl]="false" (mapClick)="mapClicked($event)">
             <agm-marker *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label"
-                [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event,i)">
+                [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+                <agm-info-window>
+                    <strong>{{markers[0].lat}}----{{markers[0].lng}}</strong>
+                </agm-info-window>
             </agm-marker>
         </agm-map>
         {{markers | json}}
@@ -13,17 +16,23 @@
             <option disabled>Chọn thành phố</option>
             <option *ngFor="let city of cityData" [value]="city.code">{{city.name}}</option>
         </select>
-        <select (change)='onSeclet(2,$event.target.value)' class="form-control" name="district_id">
+        <select (change)='onSeclet(2,$event.target.value)' class="form-control" name="district_id" [disabled]="zoom==8">
             <option disabled>Chọn quận</option>
             <option *ngFor="let district of districtData" [value]="district.code">
-                {{district.name}}</option>
+                {{district.name}}
+            </option>
         </select>
-        <select (change)='onSeclet(3,$event.target.value)' class="form-control" name="wards_id">
+        <select (change)='onSeclet(3,$event.target.value)' class="form-control" name="wards_id" [disabled]="zoom<=10">
             <option *ngFor="let wards of wardsData" [value]="wards.code">{{wards.name}}</option>
         </select>
-        <select (change)='onSeclet($event.target.value)' class="form-control" name="street_id">
+        <select (change)='onSeclet($event.target.value)' class="form-control" name="street_id" [disabled]="zoom<=10">
             <option *ngFor="let streets of streetData" [value]="streets.code">{{streets.name}}
             </option>
         </select>
+
+        <br>
+        <br>
+        <input class="form-control" type="text">
+        <input class="form-control" type="text">
     </div>
 </div>
