@@ -10,7 +10,6 @@ const routes: Routes = [
     { path: 'map', component: MapComponent },
     { path: 'material', component: MaterialComponent },
     { path: 'jqv', component: JqvMapComponent },
-
 ];
 
 @NgModule({

@@ -28,15 +28,13 @@ import { MapComponent } from './map/map.component';
 import { MaterialComponent } from './material/material.component';
 import { JqvMapComponent } from './jqv-map/jqv-map.component';
 
-
-
 @NgModule({
     declarations: [
         AppComponent,
         UploadingFileComponent,
         MapComponent,
         MaterialComponent,
-        JqvMapComponent
+        JqvMapComponent,
     ],
     imports: [
         BrowserModule,

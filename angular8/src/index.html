@@ -23,7 +23,7 @@
     <script>
         jQuery(document).ready(function () {
             jQuery('#vmap').vectorMap({
-                map: 'france_fr',
+                map: 'asia_en',
                 backgroundColor: '#415cc0',
                 hoverOpacity: 0.7,
                 selectedColor: '#b2ce6b',
@@ -31,6 +31,13 @@
                 enableZoom: true,
                 showTooltip: true,
                 multiSelectRegion: true,
+                onRegionClick: function (element, code, region) {
+                    var message = 'You clicked "'
+                        + region
+                        + '" which has the code: '
+                        + code.toUpperCase();
+                    alert(message);
+                }
             });
         });
     </script>
