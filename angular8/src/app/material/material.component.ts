@@ -1,6 +1,45 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { FormControl, Validators } from '@angular/forms';
+interface FoodNode {
+    name: string;
+    children?: FoodNode[];
+}
+
+const TREE_DATA: FoodNode[] = [
+    {
+        name: 'Fruit',
+        children: [
+            { name: 'Apple' },
+            { name: 'Banana' },
+            { name: 'Fruit loops' },
+        ]
+    }, {
+        name: 'Vegetables',
+        children: [
+            {
+                name: 'Green',
+                children: [
+                    { name: 'Broccoli' },
+                    { name: 'Brussel sprouts' },
+                ]
+            }, {
+                name: 'Orange',
+                children: [
+                    { name: 'Pumpkins' },
+                    { name: 'Carrots' },
+                ]
+            },
+        ]
+    },
+];
+
+/** Flat node with expandable and level information */
+interface ExampleFlatNode {
+    expandable: boolean;
+    name: string;
+    level: number;
+}
 
 
 @Component({
@@ -14,6 +53,7 @@ export class MaterialComponent implements OnInit {
     color = 'accent';
     checked = false;
     disabled = false;
+
 
     foods = [
         { value: 'steak-0', viewValue: 'Steak' },

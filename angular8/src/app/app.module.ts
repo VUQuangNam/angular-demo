@@ -26,6 +26,7 @@ import {
 import { UploadingFileComponent } from './uploading-file/uploading-file.component';
 import { MapComponent } from './map/map.component';
 import { MaterialComponent } from './material/material.component';
+import { JqvMapComponent } from './jqv-map/jqv-map.component';
 
 
 
@@ -34,7 +35,8 @@ import { MaterialComponent } from './material/material.component';
         AppComponent,
         UploadingFileComponent,
         MapComponent,
-        MaterialComponent
+        MaterialComponent,
+        JqvMapComponent
     ],
     imports: [
         BrowserModule,

@@ -11,8 +11,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="https://germini.info/js/jqvmap/jquery.vmap.js"></script>
+    <script type="text/javascript" src="https://germini.info/js/jqvmap/maps/jquery.vmap.france.js"
+        charset="utf-8"></script>
+    <script type="text/javascript" src="http://germini.info/js/jqvmap/maps/continents/jquery.vmap.asia.js"
+        charset="utf-8"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('#vmap').vectorMap({
+                map: 'france_fr',
+                backgroundColor: '#415cc0',
+                hoverOpacity: 0.7,
+                selectedColor: '#b2ce6b',
+                borderColor: 'red',
+                enableZoom: true,
+                showTooltip: true,
+                multiSelectRegion: true,
+            });
+        });
+    </script>
 </head>
 
 <body>
