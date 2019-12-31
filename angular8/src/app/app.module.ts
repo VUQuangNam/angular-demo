@@ -27,6 +27,8 @@ import { UploadingFileComponent } from './uploading-file/uploading-file.componen
 import { MapComponent } from './map/map.component';
 import { MaterialComponent } from './material/material.component';
 import { JqvMapComponent } from './jqv-map/jqv-map.component';
+import { UploadingFileExcelComponent } from './uploading-file-excel/uploading-file-excel.component';
+import { BoldManComponent } from './bold-man/bold-man.component';
 
 @NgModule({
     declarations: [
@@ -35,6 +37,8 @@ import { JqvMapComponent } from './jqv-map/jqv-map.component';
         MapComponent,
         MaterialComponent,
         JqvMapComponent,
+        UploadingFileExcelComponent,
+        BoldManComponent,
     ],
     imports: [
         BrowserModule,

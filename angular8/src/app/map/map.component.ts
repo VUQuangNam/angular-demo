@@ -18,8 +18,15 @@ export class MapComponent implements OnInit {
     // initial center position for the map
     latCentral = 21.00276051083239;
     lngCentral = 105.84241640624998;
+    keypress: any;
 
-    markers: IMap[] = [];
+    markers: IMap[] = [
+        {
+            lat: null,
+            lng: null,
+            draggable: true
+        }
+    ];
     zoom = 8;
 
     mapClicked($event: MouseEvent) {
@@ -67,12 +74,24 @@ export class MapComponent implements OnInit {
                         }];
                         this.latCentral = element.locations.latitude;
                         this.lngCentral = element.locations.longitude;
-                        this.zoom = 16;
+                        this.zoom = 14;
                     }
                 });
                 break;
             default:
                 break;
         }
+    }
+
+    onChange($event, index) {
+        this.keypress = setTimeout(async () => {
+            switch (index) {
+                case 1: this.markers[0].lat = $event;
+                    // tslint:disable-next-line:align
+                    break;
+                default: this.markers[0].lng = $event;
+            }
+        }, 500);
+        this.zoom = 14;
     }
 }

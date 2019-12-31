@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 form-group">
+            <input type="file" class="form-control" (change)="uploadedFile($event)" placeholder="Upload file"
+                accept=".xlsx">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2 form-group">
+            <button type="button" class="btn btn-info" (click)="readAsCSV()">Read as CSV</button>
+        </div>
+        <div class="col-md-2 form-group">
+            <button type="button" class="btn btn-info" (click)="readAsJson()">Read as JSON</button>
+        </div>
+        <div class="col-md-2 form-group">
+            <button type="button" class="btn btn-info" (click)="readAsHTML()">Read as HTML</button>
+        </div>
+        <div class="col-md-2 form-group">
+            <button type="button" class="btn btn-info" (click)="readAsText()">Read as Text</button>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<a style="cursor: pointer" (click)="exportexcel()">
+    <mat-icon> cloud_download</mat-icon>
+</a>
+
+<table id="excel-table">
+    <tr>
+        <th>ContainerNo</th>
+        <th>SelCondition</th>
+        <th> ContainerCondition</th>
+        <th>GateInDateTime</th>
+    </tr>
+    <tr *ngFor="let sup of Company">
+        <td>{{ sup.ContainerNo }}</td>
+        <td>{{ sup.SelCondition }}</td>
+        <td>{{ sup.ContainerCondition }}</td>
+        <td>{{ sup.GateInDateTime }}</td>
+    </tr>
+</table>
