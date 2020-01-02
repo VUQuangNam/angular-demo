@@ -9,13 +9,12 @@ import * as FileSaver from 'file-saver';
     styleUrls: ['./uploading-file-excel.component.scss']
 })
 export class UploadingFileExcelComponent {
+    displayedColumns: string[] = ['STT', 'name', 'gender', 'address', 'SDT'];
     /*name of the excel-file which will be downloaded. */
     fileName = 'ExcelSheet.xlsx';
     storeData: any;
-    csvData: any;
     jsonData: any;
     textData: any;
-    htmlData: any;
     fileUploaded: File;
     worksheet: any;
     uploadedFile(event) {
@@ -36,27 +35,20 @@ export class UploadingFileExcelComponent {
         };
         readFile.readAsArrayBuffer(this.fileUploaded);
     }
-    readAsCSV() {
-        this.csvData = XLSX.utils.sheet_to_csv(this.worksheet);
-        const data: Blob = new Blob([this.csvData], { type: 'text/csv;charset=utf-8;' });
-        FileSaver.saveAs(data, 'CSVFile' + new Date().getTime() + '.csv');
-    }
     readAsJson() {
         this.jsonData = XLSX.utils.sheet_to_json(this.worksheet, { raw: false });
         this.jsonData = JSON.stringify(this.jsonData);
         const data: Blob = new Blob([this.jsonData], { type: 'application/json' });
-        FileSaver.saveAs(data, 'JsonFile' + new Date().getTime() + '.json');
-    }
-    readAsHTML() {
-        this.htmlData = XLSX.utils.sheet_to_html(this.worksheet);
-        const data: Blob = new Blob([this.htmlData], { type: 'text/html;charset=utf-8;' });
-        FileSaver.saveAs(data, 'HtmlFile' + new Date().getTime() + '.html');
+        this.jsonData = JSON.parse(this.jsonData);
+        // FileSaver.saveAs(data, 'JsonFile' + new Date().getTime() + '.json');
     }
     readAsText() {
         this.textData = XLSX.utils.sheet_to_txt(this.worksheet);
         const data: Blob = new Blob([this.textData], { type: 'text/plain;charset=utf-8;' });
         FileSaver.saveAs(data, 'TextFile' + new Date().getTime() + '.txt');
     }
+
+    // xuất file excel
     exportexcel(): void {
         /* table id is passed over here */
         const element = document.getElementById('excel-table');
