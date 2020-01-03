@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
     selector: 'app-uploading-file',
     templateUrl: './uploading-file.component.html'
 })
-export class UploadingFileComponent implements OnInit {
+export class UploadingFileComponent {
     fileData: File = null;
     previewUrl: any = [];
     url: any = [];
@@ -15,9 +15,6 @@ export class UploadingFileComponent implements OnInit {
     constructor(
         private http: HttpClient
     ) { }
-
-    ngOnInit() {
-    }
 
     fileProgress(fileInput: any) {
         if (fileInput.target.files.length > 0) {

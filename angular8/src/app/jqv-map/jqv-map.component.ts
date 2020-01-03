@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
     selector: 'app-jqv-map',
     templateUrl: './jqv-map.component.html',

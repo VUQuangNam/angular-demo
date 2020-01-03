@@ -27,6 +27,7 @@ export class MapComponent implements OnInit {
             draggable: true
         }
     ];
+
     zoom = 8;
 
     mapClicked($event: MouseEvent) {

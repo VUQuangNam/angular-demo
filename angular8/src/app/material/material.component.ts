@@ -53,8 +53,6 @@ export class MaterialComponent implements OnInit {
     color = 'accent';
     checked = false;
     disabled = false;
-
-
     foods = [
         { value: 'steak-0', viewValue: 'Steak' },
         { value: 'pizza-1', viewValue: 'Pizza' },

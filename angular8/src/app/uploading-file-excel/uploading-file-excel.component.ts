@@ -5,8 +5,7 @@ import * as FileSaver from 'file-saver';
 
 @Component({
     selector: 'app-uploading-file-excel',
-    templateUrl: './uploading-file-excel.component.html',
-    styleUrls: ['./uploading-file-excel.component.scss']
+    templateUrl: './uploading-file-excel.component.html'
 })
 export class UploadingFileExcelComponent {
     displayedColumns: string[] = ['STT', 'name', 'gender', 'address', 'SDT'];
@@ -14,13 +13,14 @@ export class UploadingFileExcelComponent {
     fileName = 'ExcelSheet.xlsx';
     storeData: any;
     jsonData: any;
-    textData: any;
     fileUploaded: File;
     worksheet: any;
+    array: any = [];
     uploadedFile(event) {
         this.fileUploaded = event.target.files[0];
         this.readExcel();
     }
+
     readExcel() {
         const readFile = new FileReader();
         readFile.onload = (e) => {
@@ -35,20 +35,18 @@ export class UploadingFileExcelComponent {
         };
         readFile.readAsArrayBuffer(this.fileUploaded);
     }
-    readAsJson() {
+
+    readAsJson = () => {
         this.jsonData = XLSX.utils.sheet_to_json(this.worksheet, { raw: false });
         this.jsonData = JSON.stringify(this.jsonData);
         const data: Blob = new Blob([this.jsonData], { type: 'application/json' });
         this.jsonData = JSON.parse(this.jsonData);
+        console.log(this.jsonData);
+        // save file
         // FileSaver.saveAs(data, 'JsonFile' + new Date().getTime() + '.json');
     }
-    readAsText() {
-        this.textData = XLSX.utils.sheet_to_txt(this.worksheet);
-        const data: Blob = new Blob([this.textData], { type: 'text/plain;charset=utf-8;' });
-        FileSaver.saveAs(data, 'TextFile' + new Date().getTime() + '.txt');
-    }
 
-    // xuất file excel
+    // Export excel file
     exportexcel(): void {
         /* table id is passed over here */
         const element = document.getElementById('excel-table');
@@ -60,6 +58,9 @@ export class UploadingFileExcelComponent {
 
         /* save to file */
         XLSX.writeFile(wb, this.fileName);
+    }
 
+    onClick = () => {
+        console.log('1');
     }
 }
