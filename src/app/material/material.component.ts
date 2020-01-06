@@ -80,6 +80,7 @@ export class MaterialComponent implements OnInit {
     @ViewChild(MatSort, { static: true }) sort: MatSort;
 
     ngOnInit() {
+        console.log(this.dataSource);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
     }
