@@ -26,7 +26,6 @@ import {
 import { UploadingFileComponent } from './uploading-file/uploading-file.component';
 import { MapComponent } from './map/map.component';
 import { MaterialComponent } from './material/material.component';
-import { JqvMapComponent } from './jqv-map/jqv-map.component';
 import { UploadingFileExcelComponent } from './uploading-file-excel/uploading-file-excel.component';
 import { BoldManComponent } from './bold-man/bold-man.component';
 
@@ -36,7 +35,6 @@ import { BoldManComponent } from './bold-man/bold-man.component';
         UploadingFileComponent,
         MapComponent,
         MaterialComponent,
-        JqvMapComponent,
         UploadingFileExcelComponent,
         BoldManComponent,
     ],
