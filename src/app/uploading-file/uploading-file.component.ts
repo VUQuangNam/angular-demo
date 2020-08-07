@@ -27,7 +27,7 @@ export class UploadingFileComponent {
                     reader.onload = (event: any) => {
                         this.previewUrl.push(event.target.result);
                     };
-                    reader.readAsDataURL(event.target.files[index]);
+                    // reader.readAsDataURL(event.target.files[index]);
                 }
             });
             const mimeType = this.fileData.type;

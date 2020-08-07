@@ -4,7 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 import {
     MatTableModule,
     MatPaginatorModule,
@@ -28,6 +29,7 @@ import { MapComponent } from './map/map.component';
 import { MaterialComponent } from './material/material.component';
 import { UploadingFileExcelComponent } from './uploading-file-excel/uploading-file-excel.component';
 import { BoldManComponent } from './bold-man/bold-man.component';
+import { MapChiDuongComponent } from './map-chi-duong/map-chi-duong.component';
 
 @NgModule({
     declarations: [
@@ -37,6 +39,7 @@ import { BoldManComponent } from './bold-man/bold-man.component';
         MaterialComponent,
         UploadingFileExcelComponent,
         BoldManComponent,
+        MapChiDuongComponent,
     ],
     imports: [
         BrowserModule,
@@ -58,12 +61,11 @@ import { BoldManComponent } from './bold-man/bold-man.component';
         MatIconModule,
         MatSelectModule,
         AgmCoreModule.forRoot({
-            // please get your own API key here:
-            // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
-            apiKey: ''
-        })
+            apiKey: 'AIzaSyDUNFuTjXmVxs8bcr5xf8ZPPnBejsOURSM'
+        }),
+        AgmDirectionModule
     ],
-    providers: [],
+    providers: [GoogleMapsAPIWrapper],
     bootstrap: [AppComponent],
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA
