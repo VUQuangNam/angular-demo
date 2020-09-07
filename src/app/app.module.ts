@@ -30,6 +30,7 @@ import { MaterialComponent } from './material/material.component';
 import { UploadingFileExcelComponent } from './uploading-file-excel/uploading-file-excel.component';
 import { BoldManComponent } from './bold-man/bold-man.component';
 import { MapChiDuongComponent } from './map-chi-duong/map-chi-duong.component';
+import { Map2Component } from './map2/map2.component';
 
 @NgModule({
     declarations: [
@@ -40,6 +41,7 @@ import { MapChiDuongComponent } from './map-chi-duong/map-chi-duong.component';
         UploadingFileExcelComponent,
         BoldManComponent,
         MapChiDuongComponent,
+        Map2Component,
     ],
     imports: [
         BrowserModule,
@@ -61,7 +63,8 @@ import { MapChiDuongComponent } from './map-chi-duong/map-chi-duong.component';
         MatIconModule,
         MatSelectModule,
         AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyDUNFuTjXmVxs8bcr5xf8ZPPnBejsOURSM'
+            apiKey: 'AIzaSyDUNFuTjXmVxs8bcr5xf8ZPPnBejsOURSM',
+            libraries: ["places", "geometry"]
         }),
         AgmDirectionModule
     ],

@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./map-chi-duong.component.scss']
 })
 export class MapChiDuongComponent implements OnInit {
-    public lat = 24.799448;
-    public lng = 120.979021;
+    public lat = 21.039953;
+    public lng = 105.839805;
 
     public origin: any;
     public destination: any;
@@ -17,11 +17,7 @@ export class MapChiDuongComponent implements OnInit {
     }
 
     getDirection() {
-        this.origin = { lat: 24.799448, lng: 120.979021 };
-        this.destination = { lat: 24.799524, lng: 120.975017 };
-
-        // Location within a string
-        // this.origin = 'Taipei Main Station';
-        // this.destination = 'Taiwan Presidential Office';
+        this.origin = { lat: 21.039953, lng: 105.839805 };
+        this.destination = { lat: 21.037019, lng: 105.839419 };
     }
 }
