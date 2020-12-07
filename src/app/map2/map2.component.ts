@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { } from "googlemaps"
+// import { } from "googlemaps";
 declare var google: any;
 
 @Component({
