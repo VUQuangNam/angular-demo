@@ -32,6 +32,14 @@ import { BoldManComponent } from './bold-man/bold-man.component';
 import { MapChiDuongComponent } from './map-chi-duong/map-chi-duong.component';
 import { Map2Component } from './map2/map2.component';
 import { ExportPdfComponent } from './export-pdf/export-pdf.component';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AsyncPipe } from '@angular/common';
+import { MessagingService } from './message.service';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
 
 @NgModule({
     declarations: [
@@ -68,9 +76,14 @@ import { ExportPdfComponent } from './export-pdf/export-pdf.component';
             apiKey: 'AIzaSyC1X58IGPa0bs6yIgJU0tyHBvYK5CpHWGc',
             libraries: ["places", "geometry"]
         }),
-        AgmDirectionModule
+        AgmDirectionModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule,
+        AngularFireStorageModule,
+        AngularFireAuthModule,
+        AngularFireMessagingModule
     ],
-    providers: [GoogleMapsAPIWrapper],
+    providers: [GoogleMapsAPIWrapper, MessagingService, AsyncPipe],
     bootstrap: [AppComponent],
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA
