@@ -24,10 +24,14 @@ export class UploadingFileComponent {
                     this.url.push(fileInput.target.files[element].name);
                     this.fileData = fileInput.target.files[element];
                     const reader = new FileReader();
+                    reader.readAsDataURL(fileInput.target.files[index]);
                     reader.onload = (event: any) => {
-                        this.previewUrl.push(event.target.result);
+                        this.previewUrl.push({
+                            name: fileInput.target.files[element].name,
+                            base64: event.target.result
+                        });
                     };
-                    // reader.readAsDataURL(event.target.files[index]);
+
                 }
             });
             const mimeType = this.fileData.type;
@@ -36,6 +40,11 @@ export class UploadingFileComponent {
             }
 
         }
+    }
+
+    onClick = () => {
+        console.log(this.previewUrl);
+        console.log(this.url);
     }
 
     // uploading file avatar

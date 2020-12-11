@@ -68,7 +68,7 @@ export class ExportPdfComponent implements OnInit {
         html2canvas(data).then(canvas => {
             var imgWidth = 208;
             var imgHeight = canvas.height * imgWidth / canvas.width;
-            const contentDataURL = canvas.toDataURL('image/png')
+            const contentDataURL = canvas.toDataURL('image/png');
             console.log(contentDataURL);
             let pdf = new jsPDF('p', 'mm', 'a4');
             var position = 0;
@@ -86,8 +86,6 @@ export class ExportPdfComponent implements OnInit {
                 return true;
             }
         };
-        console.log(handleElement);
-        console.log(DATA.innerHTML);
         doc.fromHTML(DATA.innerHTML, 15, 15, {
             'width': 200,
             'elementHandlers': handleElement
