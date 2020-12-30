@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MouseEvent } from '@agm/core';
-// const citys = require('../../assets/JSON/citys.json');
-// const wards = require('../../assets/JSON/wards.json');
-// const districts = require('../../assets/JSON/districts.json');
-// const streets = require('../../assets/JSON/streets.json');
 
 @Component({
     selector: 'app-map',
@@ -12,6 +8,10 @@ import { MouseEvent } from '@agm/core';
 })
 export class MapComponent implements OnInit {
     // cityData: any = citys;
+    citys
+    wards
+    districts
+    streets
     districtData: any = [];
     wardsData: any = [];
     streetData: any = [];

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-uploading-file',
@@ -61,15 +61,7 @@ export class UploadingFileComponent {
         };
     }
 
+    onSubmit() {
 
-    // uploading file
-    // onSubmit() {
-    //     const formData = new FormData();
-    //     formData.append('file', this.fileData);
-    //     this.http.post('url/to/your/api', formData)
-    //         .subscribe(res => {
-    //             this.uploadedFilePath = res.data.filePath;
-    //             alert('SUCCESS !!');
-    //         });
-    // }
+    }
 }

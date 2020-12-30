@@ -1,45 +1,36 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+import { AsyncPipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import {
+    MatAutocompleteModule, MatCheckboxModule,
+    MatDatepickerModule, MatFormFieldModule,
+    MatIconModule, MatInputModule,
+    MatMenuModule, MatNativeDateModule,
+    MatPaginatorModule, MatRadioModule,
+    MatSelectModule, MatSlideToggleModule,
+    MatSortModule, MatTableModule
+} from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgmDirectionModule } from 'agm-direction';
+import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
-import { AgmDirectionModule } from 'agm-direction';
-import {
-    MatTableModule,
-    MatPaginatorModule,
-    MatAutocompleteModule,
-    MatSortModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSlideToggleModule,
-    MatRadioModule,
-    MatMenuModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSelectModule
-} from '@angular/material';
-
-// component
-import { UploadingFileComponent } from './uploading-file/uploading-file.component';
-import { MapComponent } from './map/map.component';
-import { MaterialComponent } from './material/material.component';
-import { UploadingFileExcelComponent } from './uploading-file-excel/uploading-file-excel.component';
 import { BoldManComponent } from './bold-man/bold-man.component';
-import { MapChiDuongComponent } from './map-chi-duong/map-chi-duong.component';
-import { Map2Component } from './map2/map2.component';
 import { ExportPdfComponent } from './export-pdf/export-pdf.component';
-import { environment } from 'src/environments/environment';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AsyncPipe } from '@angular/common';
+import { MapChiDuongComponent } from './map-chi-duong/map-chi-duong.component';
+import { MapComponent } from './map/map.component';
+import { Map2Component } from './map2/map2.component';
+import { MaterialComponent } from './material/material.component';
 import { MessagingService } from './message.service';
-import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { UploadingFileExcelComponent } from './uploading-file-excel/uploading-file-excel.component';
+import { UploadingFileComponent } from './uploading-file/uploading-file.component';
 
 @NgModule({
     declarations: [
